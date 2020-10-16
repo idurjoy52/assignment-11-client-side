@@ -24,8 +24,8 @@ const SideBar = () => {
                 <div className="mt-5">            
                     <ul className="list-unstyled"> 
                     <Link to="/admin/dashboard"><li className="text-dark"><FontAwesomeIcon icon={faShoppingBag}/>Service List</li></Link>
-                    <Link to="/admin/addService"><li className="text-dark"><FontAwesomeIcon icon={faShoppingBag}/>Add Service </li></Link>
-                    <Link to='/admin/makeAdmin'><li className="text-dark"><FontAwesomeIcon icon={faShoppingBag}/>Make Admin</li></Link>
+                    <Link to="/admin/addService"><li className="text-dark"><FontAwesomeIcon icon={faPlus}/>Add Service </li></Link>
+                    <Link to='/admin/makeAdmin'><li className="text-dark"><FontAwesomeIcon icon={faUserPlus}/>Make Admin</li></Link>
                     </ul>
                 </div>
                 :
