@@ -11,6 +11,22 @@ const UserDashBoard = () => {
     const {serviceName} = useParams();
     const[allServices,setAllservices] = useState([]);
     const history = useHistory();
+    const[isAdmin,setIsAdmin] = useState(false);
+    useEffect(() => {
+        const abortController = new AbortController()
+        const signal = abortController.signal
+        fetch('https://boiling-hollows-59715.herokuapp.com/isAdmin',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email: loggedInUser.email}),
+            signal: signal
+        })
+        .then(response => response.json())
+        .then(data => setIsAdmin(data))
+        return function cleanup() {
+            abortController.abort()
+        }
+    },[])
     useEffect(() => {
         fetch('https://boiling-hollows-59715.herokuapp.com/services')
         .then(response => response.json())
@@ -64,16 +80,7 @@ const UserDashBoard = () => {
             })
      
     },[])
-    const[isAdmin,setIsAdmin] = useState(false);
-    useEffect(() => {
-        fetch('https://boiling-hollows-59715.herokuapp.com/isAdmin',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: loggedInUser.email})
-        })
-        .then(response => response.json())
-        .then(data => setIsAdmin(data));
-    },[])
+
    
     return (
         <div className="container">

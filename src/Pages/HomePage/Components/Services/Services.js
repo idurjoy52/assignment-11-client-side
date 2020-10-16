@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Services.css'
 import InfoCard from './InfoCard/InfoCard';
+import loading from '../../../../images/loading.gif'
 
 const Services = () => {
     const[servicesInfo,setServicesInfo] = useState([]);
@@ -15,7 +16,10 @@ const Services = () => {
     return (
         <section className="container"> 
             <h2 className="text-center my-5">Provide Awesome <span className="highlight-text">services</span></h2>
-            <div className="row"> 
+            <div className="row">
+                {
+                    servicesInfo.length === 0 && <img style={{width:"150px",height:"100px",display:"block",margin:"auto"}} src={loading} alt=""/>
+                } 
                 { 
                     servicesInfo.map(service => <InfoCard key={service._id} service={service}></InfoCard>)
                 }

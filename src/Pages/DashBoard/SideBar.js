@@ -9,13 +9,19 @@ const SideBar = () => {
     const[loggedInUser,setLoggedInUser] = useContext(UserContext)
     const[isAdmin,setIsAdmin] = useState(false);
     useEffect(() => {
+        const abortController = new AbortController()
+        const signal = abortController.signal
         fetch('https://boiling-hollows-59715.herokuapp.com/isAdmin',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email: loggedInUser.email})
+            body: JSON.stringify({email: loggedInUser.email}),
+            signal: signal
         })
         .then(response => response.json())
-        .then(data => setIsAdmin(data));
+        .then(data => setIsAdmin(data))
+        return function cleanup() {
+            abortController.abort()
+        }
     },[])
     return (
         <div style={{height: '100vh'}}>

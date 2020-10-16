@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Feedback.css'
 import FeedbackCard from './FeedbackCard/FeedbackCard';
+import loading from '../../../../images/loading.gif'
 
 const Feedback = () => {
 
@@ -18,7 +19,10 @@ const Feedback = () => {
         <div className="feedback-area">
             <div className="container">
                 <h2 className="text-center my-5">Clients <span className="highlight-text">Feedback</span></h2> 
-                <div className="row"> 
+                <div className="row">
+                    {
+                        customersReview.length === 0 && <img style={{width:"150px",height:"100px",display:"block",margin:"auto"}} src={loading} alt=""/>
+                    } 
                     {
                         customersReview.map(reviewData =><FeedbackCard key={reviewData._id} reviewData={reviewData}></FeedbackCard>)
                     }
