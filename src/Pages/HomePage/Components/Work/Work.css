@@ -1,0 +1,15 @@
+.dark-bg {
+    background-color: #111430;
+    padding: 60px 0;
+    margin-top: 20px;
+}
+.dark-bg img{
+    height: 400px;
+}
+
+.carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    background-color: #111430;
+}

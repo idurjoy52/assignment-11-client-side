@@ -1,0 +1,12 @@
+.menu-bar li {
+    color: #111430;
+}
+.black-btn {
+    background-color: #111430;
+    color: #FFFFFF;
+    padding: 10px 30px;
+}
+.black-btn:hover {
+    color: #111430;
+    background-color: #FFFFFF;
+}

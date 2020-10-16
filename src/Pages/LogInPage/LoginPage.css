@@ -1,0 +1,24 @@
+.login-box {
+    height: 400px;
+    width: 40%;
+    border: 1px solid #ccc;
+    margin:  auto;
+}
+.login-btn {
+    border: 1px solid #ccc;
+    padding: 10px 50px;
+    border-radius: 25px;
+    display: block;
+    margin: auto;
+}
+.google-signin {
+    margin-top: 135px;
+}
+@media screen and (max-width: 500px){
+    .login-btn {
+        padding: 10px 10px;
+    }
+    .login-btn img {
+        display:none;
+    }
+}
