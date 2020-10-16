@@ -26,12 +26,15 @@ const AddService = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            if(data) {
+                alert("Service Added Successfully");
+            }
         })
         .catch(error => {
             console.log(error)
         })
         e.preventDefault()
+        
      }
 
     return (
